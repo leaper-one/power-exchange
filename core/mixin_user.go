@@ -9,11 +9,11 @@ type MixinUser struct {
 	// User UUID
 	UUID string `gorm:"type:varchar(36);unique_index"`
 	// Mixin UUID
-	ClientID string `json:"client_id,omitempty"`
+	ClientID string `gorm:"type:varchar(36);unique_index"`
 	// Mixin session id
-	SessionID string `json:"session_id,omitempty"`
+	SessionID string `gorm:"type:varchar(100);unique_index"`
 	// Mixin Pin Token
-	PinToken string `json:"pin_token,omitempty"`
+	PinToken string `gorm:"type:varchar(100);unique_index"`
 	// Mixin Private Key
-	PrivateKey string `json:"private_key,omitempty"`
+	PrivateKey string `gorm:"type:varchar(100);unique_index"`
 }
