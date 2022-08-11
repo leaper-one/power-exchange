@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package mixin_user;
+
+option go_package = "./mixinuser";
+
+service MixinUser {
+    // 创建 MixinUser
+    rpc CreateMixinUser (CreateMixinUserRequest) returns (CreateMixinUserResponse) {}
+    // 查询 MixinUser
+    // rpc QueryMixinUser (QueryMixinUserRequest) returns (QueryMixinUserResponse) {}
+    // 删除 MixinUser
+    // rpc DeleteMixinUser (DeleteMixinUserRequest) returns (DeleteMixinUserResponse) {}
+}
+
+message CreateMixinUserRequest {
+    string uuid = 1;
+}
+
+message CreateMixinUserResponse {
+    int32 code = 1;
+    string msg = 2;
+}
