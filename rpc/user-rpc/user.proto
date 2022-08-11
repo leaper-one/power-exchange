@@ -12,7 +12,7 @@ service User {
     // 更新用户
     rpc UpdateUser(UpdateUserRequest) returns (UpdateUserResponse) {}
     // 删除用户
-    // rpc DeleteUser(DeleteUserRequest) returns (DeleteUserResponse) {}
+    rpc DeleteUser(DeleteUserRequest) returns (DeleteUserResponse) {}
 }
 
 message CreateUserRequest {
@@ -91,6 +91,18 @@ message UpdateUserRequest {
 }
 
 message UpdateUserResponse {
+    // 状态码
+    int32 code = 1;
+    // 返回信息
+    string msg = 2;
+}
+
+message DeleteUserRequest {
+    // 用户 id
+    string uuid = 1;
+}
+
+message DeleteUserResponse {
     // 状态码
     int32 code = 1;
     // 返回信息

@@ -18,6 +18,8 @@ type (
 		QueryUser(ctx context.Context, in *QueryUserRequest, opts ...grpc.CallOption) (*QueryUserResponse, error)
 		//  更新用户
 		UpdateUser(ctx context.Context, in *UpdateUserRequest, opts ...grpc.CallOption) (*UpdateUserResponse, error)
+		//  删除用户
+		DeleteUser(ctx context.Context, in *DeleteUserRequest, opts ...grpc.CallOption) (*DeleteUserResponse, error)
 	}
 
 	defaultUser struct {
@@ -47,4 +49,10 @@ func (m *defaultUser) QueryUser(ctx context.Context, in *QueryUserRequest, opts 
 func (m *defaultUser) UpdateUser(ctx context.Context, in *UpdateUserRequest, opts ...grpc.CallOption) (*UpdateUserResponse, error) {
 	client := NewUserClient(m.cli.Conn())
 	return client.UpdateUser(ctx, in, opts...)
+}
+
+//  删除用户
+func (m *defaultUser) DeleteUser(ctx context.Context, in *DeleteUserRequest, opts ...grpc.CallOption) (*DeleteUserResponse, error) {
+	client := NewUserClient(m.cli.Conn())
+	return client.DeleteUser(ctx, in, opts...)
 }
