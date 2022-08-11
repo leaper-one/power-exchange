@@ -12,7 +12,7 @@ import (
 	"gorm.io/gorm"
 )
 
-func NewUserStore(db *util.DB) core.MixinUserStore {
+func NewMixinUserStore(db *util.DB) core.MixinUserStore {
 	return &mixinUserStore{db: db}
 	// return &userStore{db: db}
 }
