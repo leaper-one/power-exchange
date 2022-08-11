@@ -14,6 +14,8 @@ type (
 	User interface {
 		//  创建用户
 		CreateUser(ctx context.Context, in *CreateUserRequest, opts ...grpc.CallOption) (*CreateUserResponse, error)
+		//  查询用户
+		QueryUser(ctx context.Context, in *QueryUserRequest, opts ...grpc.CallOption) (*QueryUserResponse, error)
 	}
 
 	defaultUser struct {
@@ -31,4 +33,10 @@ func NewUser(cli zrpc.Client) User {
 func (m *defaultUser) CreateUser(ctx context.Context, in *CreateUserRequest, opts ...grpc.CallOption) (*CreateUserResponse, error) {
 	client := NewUserClient(m.cli.Conn())
 	return client.CreateUser(ctx, in, opts...)
+}
+
+//  查询用户
+func (m *defaultUser) QueryUser(ctx context.Context, in *QueryUserRequest, opts ...grpc.CallOption) (*QueryUserResponse, error) {
+	client := NewUserClient(m.cli.Conn())
+	return client.QueryUser(ctx, in, opts...)
 }

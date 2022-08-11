@@ -12,8 +12,8 @@ import (
 )
 
 type DB struct {
-	write *gorm.DB
-	read  *gorm.DB
+	Write *gorm.DB
+	Read  *gorm.DB
 }
 
 /*
@@ -26,7 +26,7 @@ func OpenDB(path string) *DB {
 	if err != nil {
 		return nil
 	}
-	return &DB{write: db, read: db}
+	return &DB{Write: db, Read: db}
 }
 
 func OpenMysql(dsn string) *DB {
@@ -38,43 +38,43 @@ func OpenMysql(dsn string) *DB {
 	if err != nil {
 		return nil
 	}
-	return &DB{write: db, read: db}
+	return &DB{Write: db, Read: db}
 }
 */
 
 func (db *DB) Update() *gorm.DB {
-	return db.write
+	return db.Write
 }
 
 func (db *DB) View() *gorm.DB {
-	return db.read
+	return db.Read
 }
 
 func (db *DB) Debug() *DB {
 	return &DB{
-		write: db.write.Debug(),
-		read:  db.read.Debug(),
+		Write: db.Write.Debug(),
+		Read:  db.Read.Debug(),
 	}
 }
 
 func (db *DB) Begin() *DB {
-	tx := db.write.Begin()
+	tx := db.Write.Begin()
 	return &DB{
-		write: tx,
-		read:  db.read,
+		Write: tx,
+		Read:  db.Read,
 	}
 }
 
 func (db *DB) Rollback() error {
-	return db.write.Rollback().Error
+	return db.Write.Rollback().Error
 }
 
 func (db *DB) Commit() error {
-	return db.write.Commit().Error
+	return db.Write.Commit().Error
 }
 
 func (db *DB) RollbackUnlessCommitted() {
-	if err := db.write.Rollback().Error; err != nil {
+	if err := db.Write.Rollback().Error; err != nil {
 		logrus.WithError(err).Error("DB: RollbackUnlessCommitted")
 	}
 }

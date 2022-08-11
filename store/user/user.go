@@ -14,7 +14,6 @@ import (
 
 func NewUserStore(db *util.DB) core.UserStore {
 	return &userStore{db: db}
-	// return &userStore{db: db}
 }
 
 type userStore struct {

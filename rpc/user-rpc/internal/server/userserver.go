@@ -27,3 +27,9 @@ func (s *UserServer) CreateUser(ctx context.Context, in *user.CreateUserRequest)
 	l := logic.NewCreateUserLogic(ctx, s.svcCtx)
 	return l.CreateUser(in)
 }
+
+//  查询用户
+func (s *UserServer) QueryUser(ctx context.Context, in *user.QueryUserRequest) (*user.QueryUserResponse, error) {
+	l := logic.NewQueryUserLogic(ctx, s.svcCtx)
+	return l.QueryUser(in)
+}

@@ -50,15 +50,15 @@ func (l *CreateUserLogic) CreateUser(in *user.CreateUserRequest) (*user.CreateUs
 	}
 
 	// 存入数据库
-	result := l.svcCtx.DbEngin.Save(&new_user)
-	if result.Error != nil {
+	err = l.svcCtx.DbEngin.Save(l.ctx, &new_user)
+	if err != nil {
 		return &user.CreateUserResponse{
 			Code: 500,
 			Msg:  "数据库创建用户失败",
-		}, result.Error
+		}, err
 	}
 	return &user.CreateUserResponse{
 		Code: 200,
 		Msg:  "创建用户成功",
-	}, result.Error
+	}, err
 }
