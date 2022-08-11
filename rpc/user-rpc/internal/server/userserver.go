@@ -33,3 +33,9 @@ func (s *UserServer) QueryUser(ctx context.Context, in *user.QueryUserRequest) (
 	l := logic.NewQueryUserLogic(ctx, s.svcCtx)
 	return l.QueryUser(in)
 }
+
+//  更新用户
+func (s *UserServer) UpdateUser(ctx context.Context, in *user.UpdateUserRequest) (*user.UpdateUserResponse, error) {
+	l := logic.NewUpdateUserLogic(ctx, s.svcCtx)
+	return l.UpdateUser(in)
+}
