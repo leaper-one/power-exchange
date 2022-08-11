@@ -16,11 +16,17 @@ service User {
 }
 
 message CreateUserRequest {
+    // 密码
     string password = 1;
+    // 用户名
     string userName = 2;
+    // 邮箱
     string email = 3;
+    // 手机号
     string phone = 4;
+    // 头像
     string avatar = 5;
+    // 用户类别
     uint64 type = 6;
 }
 
@@ -29,9 +35,14 @@ message CreateUserResponse {
     int32 code = 1;
     // 返回信息
     string msg = 2;
+    // 用户 id
     string uuid = 3;
+    // 用户名
     string name = 4;
+    // 邮箱
     string email = 5;
+    // 密码
     string password = 6;
+    // 头像
     string avatar = 7;
 }

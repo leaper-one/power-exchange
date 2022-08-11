@@ -14,12 +14,7 @@ type ServiceContext struct {
 }
 
 func NewServiceContext(c config.Config) *ServiceContext {
-	db, err := gorm.Open(mysql.Open(c.DataSourceName), &gorm.Config{
-		// NamingStrategy: schema.NamingStrategy{
-		// TablePrefix:   "t_", // 表名前缀，`User` 的表名应该是 `t_users`
-		// SingularTable: true,    // 使用单数表名，启用该选项，此时，`User` 的表名应该是 `t_user`
-		// },
-	})
+	db, err := gorm.Open(mysql.Open(c.DataSourceName), &gorm.Config{})
 	if err != nil {
 		// panic(err)
 		logx.Error(err)

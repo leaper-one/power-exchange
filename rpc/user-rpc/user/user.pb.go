@@ -25,12 +25,18 @@ type CreateUserRequest struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
+	// 密码
 	Password string `protobuf:"bytes,1,opt,name=password,proto3" json:"password,omitempty"`
+	// 用户名
 	UserName string `protobuf:"bytes,2,opt,name=userName,proto3" json:"userName,omitempty"`
-	Email    string `protobuf:"bytes,3,opt,name=email,proto3" json:"email,omitempty"`
-	Phone    string `protobuf:"bytes,4,opt,name=phone,proto3" json:"phone,omitempty"`
-	Avatar   string `protobuf:"bytes,5,opt,name=avatar,proto3" json:"avatar,omitempty"`
-	Type     uint64 `protobuf:"varint,6,opt,name=type,proto3" json:"type,omitempty"`
+	// 邮箱
+	Email string `protobuf:"bytes,3,opt,name=email,proto3" json:"email,omitempty"`
+	// 手机号
+	Phone string `protobuf:"bytes,4,opt,name=phone,proto3" json:"phone,omitempty"`
+	// 头像
+	Avatar string `protobuf:"bytes,5,opt,name=avatar,proto3" json:"avatar,omitempty"`
+	// 用户类别
+	Type uint64 `protobuf:"varint,6,opt,name=type,proto3" json:"type,omitempty"`
 }
 
 func (x *CreateUserRequest) Reset() {
@@ -115,12 +121,17 @@ type CreateUserResponse struct {
 	// 状态码
 	Code int32 `protobuf:"varint,1,opt,name=code,proto3" json:"code,omitempty"`
 	// 返回信息
-	Msg      string `protobuf:"bytes,2,opt,name=msg,proto3" json:"msg,omitempty"`
-	Uuid     string `protobuf:"bytes,3,opt,name=uuid,proto3" json:"uuid,omitempty"`
-	Name     string `protobuf:"bytes,4,opt,name=name,proto3" json:"name,omitempty"`
-	Email    string `protobuf:"bytes,5,opt,name=email,proto3" json:"email,omitempty"`
+	Msg string `protobuf:"bytes,2,opt,name=msg,proto3" json:"msg,omitempty"`
+	// 用户 id
+	Uuid string `protobuf:"bytes,3,opt,name=uuid,proto3" json:"uuid,omitempty"`
+	// 用户名
+	Name string `protobuf:"bytes,4,opt,name=name,proto3" json:"name,omitempty"`
+	// 邮箱
+	Email string `protobuf:"bytes,5,opt,name=email,proto3" json:"email,omitempty"`
+	// 密码
 	Password string `protobuf:"bytes,6,opt,name=password,proto3" json:"password,omitempty"`
-	Avatar   string `protobuf:"bytes,7,opt,name=avatar,proto3" json:"avatar,omitempty"`
+	// 头像
+	Avatar string `protobuf:"bytes,7,opt,name=avatar,proto3" json:"avatar,omitempty"`
 }
 
 func (x *CreateUserResponse) Reset() {

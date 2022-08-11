@@ -48,6 +48,8 @@ func (l *CreateUserLogic) CreateUser(in *user.CreateUserRequest) (*user.CreateUs
 		AvatarUrl: in.Avatar,
 		Type:      in.Type,
 	}
+
+	// 存入数据库
 	result := l.svcCtx.DbEngin.Save(&new_user)
 	if result.Error != nil {
 		return &user.CreateUserResponse{
